@@ -3,8 +3,8 @@ from scipy.signal import find_peaks
 from os import getcwd
 
 # Define the input and output files
-INPUT = getcwd() + "/data/symmetry_left.csv"
-OUTPUT = getcwd() + "/data_clean/symmetry_left_clean.csv"
+INPUT = getcwd() + "/data/250grams.csv"
+OUTPUT = getcwd() + "/data_clean/250grams_clean.csv"
 
 # Important note: The above file structure is defined for my project
 # structure on a Linux Ubuntu system.
