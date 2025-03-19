@@ -1,22 +1,22 @@
-Verify or refute that the period it independent of the initial angle
+[] Verify or refute that the period it independent of the initial angle
 - Plot initial angle
 - Find trend in data
 
-Estimate the asymmetry of your pendulum
+[] Estimate the asymmetry of your pendulum
 - Manual suggests has to do with the previous part
 - So... see if a difference arises in the tau or period length?
 
-Verify or refute the claim that the decay is exponential, and determine the time constant tau
+[] Verify or refute the claim that the decay is exponential, and determine the time constant tau
 - Plot the peak amplitude as a function of time
 - Calculate the time decay for different initial angles
 
-Verify or refute the claim that the period depends on L as stated in the lab manual
+[] Verify or refute the claim that the period depends on L as stated in the lab manual
 - Units are wrong, we'll have to correct this
 
-Verify or refute the claim that the period is independent of the mass
+[] Verify or refute the claim that the period is independent of the mass
 - The mass might affect L and D. Ignore these parts
 
-Investigate how L + D, m, and the initial angle on tau. If you find a trend, attempt to find a function which fits your data.
+[] Investigate how L + D, m, and the initial angle on tau. If you find a trend, attempt to find a function which fits your data.
 - Don't need a theoretical justification
 - Need to justify function choice with goodness of fit or something similar
 - There is nothing to verify or refute here
