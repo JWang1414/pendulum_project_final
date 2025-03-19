@@ -34,6 +34,8 @@ def average_periods(df: pd.DataFrame):
         avg_periods.append(np.mean(temp))
         std_list.append(np.std(temp))
 
+    _remove_outliers_period(avg_periods, std_list, 0.1)
+
     return avg_periods, std_list
 
 def every_nth_angle(df: pd.DataFrame, n: int):
@@ -49,3 +51,17 @@ def every_nth_angle(df: pd.DataFrame, n: int):
         result.append(df.iat[i, 1])
 
     return result
+
+def _remove_outliers_period(data, std, threshold):
+    """
+    Removes outliers from a list of periods. Modified in-place.
+    :param data: List of periods.
+    :param std: Standard deviation of the periods.
+    :param threshold: Threshold for outlier removal.
+    """
+    std_copy = std.copy()
+
+    for i in range(len(data)):
+        if std_copy[i] > threshold:
+            data.pop(i)
+            std.pop(i)
