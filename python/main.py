@@ -12,6 +12,32 @@ FUNCTION_INDEX = 0
 FIT_FUNCTIONS = [linear, quadratic, exponential]
 CURRENT_FUNCTION = FIT_FUNCTIONS[FUNCTION_INDEX]
 
+FIGURE_SIZE = (8, 6)
+
+
+def plot_data(x, y, y_err, x_err, xlabel, ylabel):
+    # Create subplots
+    fig, (ax1, ax2) = plt.subplots(2, 1, sharex="all", figsize=FIGURE_SIZE)
+
+    # Plot data with error bar
+    ax1.errorbar(x, y, y_err, x_err, fmt="o")
+
+    # Plot line of best fit
+    popt = fit_data(ax1, CURRENT_FUNCTION, x, y, y_err)
+
+    # Plot residuals
+    plot_residuals(ax2, CURRENT_FUNCTION, popt, x, y, y_err)
+
+    # Set plot settings
+    fig_settings(fig, xlabel, ylabel)
+
+
+def fig_settings(figure, xlabel, ylabel):
+    figure.supxlabel(xlabel)
+    figure.supylabel(ylabel)
+    figure.tight_layout()
+    figure.show()
+
 
 def plot_periods(df):
     # Define variables
@@ -22,20 +48,9 @@ def plot_periods(df):
     # Clean data
     outlier_management(angles, periods, periods_err, angles_err)
 
-    # Plot data with error bars
-    plt.errorbar(angles, periods, periods_err, angles_err, fmt="o")
-
-    # Plot line of best fit
-    popt = fit_data(CURRENT_FUNCTION, angles, periods, periods_err)
-
-    # Plot residuals
-    plot_residuals(CURRENT_FUNCTION, popt, angles, periods, periods_err)
-
-    # Set plot settings
-    plt.xlabel("Initial Angle (degrees)")
-    plt.ylabel("Period (seconds)")
-    plt.tight_layout()
-    plt.show()
+    # Plot everything
+    plot_data(angles, periods, periods_err, angles_err,
+              "Initial Angle (degrees)", "Period (seconds)")
 
 
 def plot_tau(df):
@@ -45,20 +60,9 @@ def plot_tau(df):
     angles = angles[:len(tau)]
     angles_err = [1.0] * len(angles)
 
-    # Plot data with error bar
-    plt.errorbar(angles, tau, tau_err, angles_err, fmt="o")
-
-    # Plot line of best fit
-    popt = fit_data(CURRENT_FUNCTION, angles, tau, tau_err)
-
-    # Plot residuals
-    plot_residuals(CURRENT_FUNCTION, popt, angles, tau, tau_err)
-
-    # Set plot settings
-    plt.xlabel("Initial Angle (degrees)")
-    plt.ylabel("Time constant (seconds)")
-    plt.tight_layout()
-    plt.show()
+    # Plot everything
+    plot_data(angles, angles_err, tau, tau_err,
+              "Initial Angle (degrees)", "Decay Constant (seconds)")
 
 
 def main():

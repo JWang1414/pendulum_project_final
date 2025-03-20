@@ -101,10 +101,11 @@ def print_goodness_of_fit(function, popt, x, y, y_err):
     print(f"Chi-squared probability: {1 - chi2.cdf(chi_squared, dof)}")
 
 
-def fit_data(function, x, y, y_err):
+def fit_data(figure, function, x, y, y_err):
     """
     Fit a line of best fit, and plot it on top of the data.
     Goodness of fit is printed.
+    :param figure: The figure to plot on.
     :param function: Function used to fit data.
     :param x: Independent variable.
     :param y: Dependent variable.
@@ -120,15 +121,16 @@ def fit_data(function, x, y, y_err):
     # Plot line of best fit
     x_bf = np.linspace(min(x), max(x), 1000)
     y_bf = function(x_bf, *popt)
-    plt.plot(x_bf, y_bf)
+    figure.plot(x_bf, y_bf)
 
     return popt
 
 
-def plot_residuals(function, popt, x, y, y_err):
+def plot_residuals(figure, function, popt, x, y, y_err):
     y_bf = function(x, *popt)
     residuals = y - y_bf
-    plt.errorbar(x, residuals, y_err, fmt="o")
+    figure.errorbar(x, residuals, y_err, fmt="o")
+    figure.axhline(0, color="red", linestyle="--")
 
 
 def find_tau(t, theta, theta_err):
