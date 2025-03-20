@@ -7,11 +7,11 @@
 - Manual suggests has to do with the previous part
 - So... see if a difference arises in the tau or period length?
 
-[] Verify or refute the claim that the decay is exponential, and determine the time constant tau
+[x] Verify or refute the claim that the decay is exponential, and determine the time constant tau
 - Plot the peak amplitude as a function of time
 - Calculate the time decay for different initial angles
 - Decay appears to be exponential
-- Test this for different masses and length
+- Predictions of tau get chaotic when there are less datapoints
 
 [] Verify or refute the claim that the period depends on L as stated in the lab manual
 - Units are wrong, we'll have to correct this
