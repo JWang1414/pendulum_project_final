@@ -12,9 +12,11 @@
 
 [] Verify or refute the claim that the period depends on L as stated in the lab manual
 - Units are wrong, we'll have to correct this
+- Analyze datasets that alter string length. Use the small angle approximation to find an average period. Check if the period depends on L
 
 [] Verify or refute the claim that the period is independent of the mass
 - The mass might affect L and D. Ignore these parts
+- Use the small angle approximation again. This time, analyze the datasets that vary mass
 
 [] Investigate how L + D, m, and the initial angle on tau. If you find a trend, attempt to find a function which fits your data.
 - Don't need a theoretical justification
