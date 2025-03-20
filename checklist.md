@@ -1,6 +1,7 @@
-[] Verify or refute that the period it independent of the initial angle
+[x] Verify or refute that the period is independent of the initial angle
 - Plot initial angle
 - Find trend in data
+- Periods appears to change for different initial angles
 
 [] Estimate the asymmetry of your pendulum
 - Manual suggests has to do with the previous part
@@ -9,6 +10,8 @@
 [] Verify or refute the claim that the decay is exponential, and determine the time constant tau
 - Plot the peak amplitude as a function of time
 - Calculate the time decay for different initial angles
+- Decay appears to be exponential
+- Test this for different masses and length
 
 [] Verify or refute the claim that the period depends on L as stated in the lab manual
 - Units are wrong, we'll have to correct this
