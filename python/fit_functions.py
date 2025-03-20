@@ -1,7 +1,8 @@
 import numpy as np
+import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 from scipy.stats import chi2
-import matplotlib.pyplot as plt
+
 
 def linear(x, m, b):
     """
@@ -16,6 +17,7 @@ def linear(x, m, b):
 
     return m * x + b
 
+
 def quadratic(x, a, b, c):
     """
     Quadratic function.
@@ -28,6 +30,7 @@ def quadratic(x, a, b, c):
     a = np.array(a)
 
     return a * (x - b)**2 + c
+
 
 def exponential(x, a, b, c, d):
     """
@@ -45,6 +48,8 @@ def exponential(x, a, b, c, d):
     first = np.exp(b * (x - c))
     return a * first + d
 
+
+# noinspection PyTupleAssignmentBalance
 def fit_curve(function, x, y, y_err):
     """
     Use scipy.optimize.curve_fit to fit a curve to data.
@@ -61,6 +66,7 @@ def fit_curve(function, x, y, y_err):
     print(f"Optimized values: {popt}\nUncertainties: {pcov}")
 
     return popt, pcov
+
 
 def print_goodness_of_fit(function, popt, x, y, y_err):
     """
@@ -82,6 +88,7 @@ def print_goodness_of_fit(function, popt, x, y, y_err):
     print(f"Chi-squared: {chi_squared}")
     print(f"Degrees of Freedom: {dof}")
     print(f"Chi-squared probability: {1 - chi2.cdf(chi_squared, dof)}")
+
 
 def fit_data(function, x, y, y_err):
     """

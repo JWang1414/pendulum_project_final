@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+
 def find_periods(df: pd.DataFrame):
     """
     Calculate the period length for each data point in the dataframe.
@@ -16,6 +17,7 @@ def find_periods(df: pd.DataFrame):
         periods.append(period)
 
     return periods
+
 
 def average_periods(df: pd.DataFrame):
     """
@@ -36,6 +38,7 @@ def average_periods(df: pd.DataFrame):
 
     return avg_periods, std_list
 
+
 def every_nth_angle(df: pd.DataFrame, n: int):
     """
     Creates a list of every nth angle in the dataframe.
@@ -51,6 +54,7 @@ def every_nth_angle(df: pd.DataFrame, n: int):
 
     return result
 
+
 def control_uncertainties(std, threshold):
     """
     Find uncertainties that are too small and replace them with the threshold.
@@ -63,6 +67,7 @@ def control_uncertainties(std, threshold):
             std[i] = threshold
 
     return
+
 
 def find_outliers(std, threshold):
     """
@@ -79,6 +84,7 @@ def find_outliers(std, threshold):
             indices.append(i)
 
     return indices
+
 
 def wipe_outliers(x, y, y_err, x_err):
     """
@@ -104,6 +110,7 @@ def wipe_outliers(x, y, y_err, x_err):
             i += 1
 
     return
+
 
 def outlier_management(x, y, y_err, x_err):
     """

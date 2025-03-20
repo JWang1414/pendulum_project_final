@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 from matplotlib import rc
 from helper_functions import *
 from fit_functions import *
@@ -11,6 +10,7 @@ FILE_PATH = getcwd() + "/" + FILE
 FUNCTION_INDEX = 1
 FIT_FUNCTIONS = [linear, quadratic, exponential]
 CURRENT_FUNCTION = FIT_FUNCTIONS[FUNCTION_INDEX]
+
 
 def plot_periods(df):
     # Define variables
@@ -31,6 +31,7 @@ def plot_periods(df):
     plt.ylabel("Period (seconds)")
     plt.tight_layout()
     plt.show()
+
 
 def main():
     # Define fonts
