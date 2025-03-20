@@ -4,7 +4,7 @@ from fit_functions import *
 from os import getcwd
 
 # Reformatting this so that PyCharm can autocomplete the file name
-FILE = "data_clean/250grams_clean.csv"
+FILE = "data_clean/23cm_clean.csv"
 FILE_PATH = getcwd() + "/" + FILE
 
 FUNCTION_INDEX = 0
@@ -76,8 +76,11 @@ def plot_tau(df):
     angles = angles[:len(tau)]
     angles_err = [1.0] * len(angles)
 
+    # Clean data
+    control_uncertainties(tau_err, 0.1)
+
     # Plot everything
-    plot_data(angles, angles_err, tau, tau_err,
+    plot_data(angles, tau, tau_err, angles_err,
               "Initial Angle (degrees)", "Decay Constant (seconds)")
 
 
