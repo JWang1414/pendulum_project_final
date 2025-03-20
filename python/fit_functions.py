@@ -109,7 +109,7 @@ def fit_data(function, x, y, y_err):
     :param x: Independent variable.
     :param y: Dependent variable.
     :param y_err: Error on dependent variable.
-    :return: Nothing
+    :return: Optimized fit values.
     """
     # Fit curve
     popt, _ = fit_curve(function, x, y, y_err)
@@ -121,6 +121,14 @@ def fit_data(function, x, y, y_err):
     x_bf = np.linspace(min(x), max(x), 1000)
     y_bf = function(x_bf, *popt)
     plt.plot(x_bf, y_bf)
+
+    return popt
+
+
+def plot_residuals(function, popt, x, y, y_err):
+    y_bf = function(x, *popt)
+    residuals = y - y_bf
+    plt.errorbar(x, residuals, y_err, fmt="o")
 
 
 def find_tau(t, theta, theta_err):

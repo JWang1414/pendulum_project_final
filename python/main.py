@@ -26,7 +26,10 @@ def plot_periods(df):
     plt.errorbar(angles, periods, periods_err, angles_err, fmt="o")
 
     # Plot line of best fit
-    fit_data(CURRENT_FUNCTION, angles, periods, periods_err)
+    popt = fit_data(CURRENT_FUNCTION, angles, periods, periods_err)
+
+    # Plot residuals
+    plot_residuals(CURRENT_FUNCTION, popt, angles, periods, periods_err)
 
     # Set plot settings
     plt.xlabel("Initial Angle (degrees)")
@@ -46,7 +49,10 @@ def plot_tau(df):
     plt.errorbar(angles, tau, tau_err, angles_err, fmt="o")
 
     # Plot line of best fit
-    fit_data(CURRENT_FUNCTION, angles, tau, tau_err)
+    popt = fit_data(CURRENT_FUNCTION, angles, tau, tau_err)
+
+    # Plot residuals
+    plot_residuals(CURRENT_FUNCTION, popt, angles, tau, tau_err)
 
     # Set plot settings
     plt.xlabel("Initial Angle (degrees)")
