@@ -5,7 +5,7 @@ from fit_functions import *
 from os import getcwd
 
 # Reformatting this so that PyCharm can autocomplete the file name
-FILE = "data_clean/symmetry_left_clean.csv"
+FILE = "data_clean/250grams_clean.csv"
 FILE_PATH = getcwd() + "/" + FILE
 
 FUNCTION_INDEX = 1
