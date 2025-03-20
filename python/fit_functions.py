@@ -49,21 +49,32 @@ def exponential(x, a, b, c, d):
     return a * first + d
 
 
+def decay_function(x, a, b, c):
+    a = np.array(a)
+    b = np.array(b)
+
+    return a * np.exp(-x / b) + c
+
+
 # noinspection PyTupleAssignmentBalance
-def fit_curve(function, x, y, y_err):
+def fit_curve(function, x, y, y_err, init=None, out=True):
     """
     Use scipy.optimize.curve_fit to fit a curve to data.
     :param function: The function used to fit values.
     :param x: Independent variable.
     :param y: Dependent variable.
     :param y_err: Error on dependent variable.
+    :param init: Initial values for the fit. (Optional)
+    :param out: Whether to print output. By default, True.
     :return: Optimized values and uncertainties.
     """
     popt, pcov = curve_fit(function, x, y,
-                           sigma=y_err, absolute_sigma=True)
+                           sigma=y_err, absolute_sigma=True,
+                           p0=init)
 
     pcov = np.sqrt(np.diag(pcov))
-    print(f"Optimized values: {popt}\nUncertainties: {pcov}")
+    if out:
+        print(f"Optimized values: {popt}\nUncertainties: {pcov}")
 
     return popt, pcov
 
@@ -107,6 +118,30 @@ def fit_data(function, x, y, y_err):
     print_goodness_of_fit(function, popt, x, y, y_err)
 
     # Plot line of best fit
-    x_bf = np.linspace(x[0], x[-1], 1000)
+    x_bf = np.linspace(min(x), max(x), 1000)
     y_bf = function(x_bf, *popt)
     plt.plot(x_bf, y_bf)
+
+
+def find_tau(t, theta, theta_err):
+    popt, pcov = fit_curve(decay_function, t, theta, theta_err,
+                           [theta[0], 10, 0], False)
+    return popt[2], pcov[2]
+
+
+def tau_list(df, n):
+    # Define variables
+    time = df["time"].tolist()
+    amp = df["angle"].tolist()
+    amp_err = [1.0] * len(amp)
+
+    # Calculate tau for numerous initial angles
+    result = []
+    uncertainties = []
+    length = len(time) - 100
+    for i in range(0, length, n):
+        temp1, temp2 = find_tau(time[i:], amp[i:], amp_err[i:])
+        result.append(temp1)
+        uncertainties.append(temp2)
+
+    return result, uncertainties
