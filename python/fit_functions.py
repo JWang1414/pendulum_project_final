@@ -101,7 +101,7 @@ def print_goodness_of_fit(function, popt, x, y, y_err):
     print(f"Chi-squared probability: {1 - chi2.cdf(chi_squared, dof)}")
 
 
-def fit_data(figure, function, x, y, y_err):
+def fit_data(figure: plt.Axes, function, x, y, y_err):
     """
     Fit a line of best fit, and plot it on top of the data.
     Goodness of fit is printed.
@@ -126,7 +126,17 @@ def fit_data(figure, function, x, y, y_err):
     return popt
 
 
-def plot_residuals(figure, function, popt, x, y, y_err):
+def plot_residuals(figure: plt.Axes, function, popt, x, y, y_err):
+    """
+    Plots the residuals of the fit.
+    :param figure: Figure to plot on.
+    :param function: Optimal fit function.
+    :param popt: Optimized fit values.
+    :param x: Independent variable.
+    :param y: Dependent variable.
+    :param y_err: Error on dependent variable.
+    :return: Nothing
+    """
     y_bf = function(x, *popt)
     residuals = y - y_bf
     figure.errorbar(x, residuals, y_err, fmt="o")
@@ -134,12 +144,25 @@ def plot_residuals(figure, function, popt, x, y, y_err):
 
 
 def find_tau(t, theta, theta_err):
+    """
+    Uses curve_fit to find the decay constant.
+    :param t: Time
+    :param theta: Angle / amplitude
+    :param theta_err: Error on theta
+    :return: Tau and its uncertainty
+    """
     popt, pcov = fit_curve(decay_function, t, theta, theta_err,
                            [theta[0], 10, 0], False)
     return popt[2], pcov[2]
 
 
 def tau_list(df, n):
+    """
+    Creates a list of decay constants for each initial angle, from one large dataframe.
+    :param df: Dataframe, assumed to have columns "time" and "angle"
+    :param n: Jump between tau calculations
+    :return: Two lists. One of the tau values, the other of the uncertainties.
+    """
     # Define variables
     time = df["time"].tolist()
     amp = df["angle"].tolist()

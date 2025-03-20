@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 from matplotlib import rc
 from helper_functions import *
 from fit_functions import *
@@ -16,6 +15,16 @@ FIGURE_SIZE = (8, 6)
 
 
 def plot_data(x, y, y_err, x_err, xlabel, ylabel):
+    """
+    Plots data with error bars, fits a curve to it, and plots the residuals.
+    :param x: Independent variable.
+    :param y: Dependent variable.
+    :param y_err: Error on dependent variable.
+    :param x_err: Error on independent variable.
+    :param xlabel: Label for x-axis.
+    :param ylabel: Label for y-axis.
+    :return: Nothing
+    """
     # Create subplots
     fig, (ax1, ax2) = plt.subplots(2, 1, sharex="all", figsize=FIGURE_SIZE)
 
@@ -33,6 +42,13 @@ def plot_data(x, y, y_err, x_err, xlabel, ylabel):
 
 
 def fig_settings(figure, xlabel, ylabel):
+    """
+    Default figure settings. Shows the figure.
+    :param figure: Figure to adjust
+    :param xlabel: Label for x-axis
+    :param ylabel: Label for y-axis
+    :return:
+    """
     figure.supxlabel(xlabel)
     figure.supylabel(ylabel)
     figure.tight_layout()
