@@ -17,6 +17,27 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/python/data_clean/150grams_clean.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/python/data_clean/16cm_clean.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/python/data_clean/32cm_clean.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/python/data_clean/symmetry_left_clean.csv">
           <value>
             <Attribute>
