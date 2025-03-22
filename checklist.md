@@ -6,6 +6,7 @@
 [] Estimate the asymmetry of your pendulum
 - Manual suggests has to do with the previous part
 - So... see if a difference arises in the tau or period length?
+- Relevant: Only used the amplitude on one side to minimize the effect of camera tilt/placement
 
 [x] Verify or refute the claim that the decay is exponential, and determine the time constant tau
 - Plot the peak amplitude as a function of time
