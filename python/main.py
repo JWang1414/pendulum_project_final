@@ -4,10 +4,10 @@ from fit_functions import *
 from os import getcwd
 
 # Reformatting this so that PyCharm can autocomplete the file name
-FILE = "data_clean/150grams_clean.csv"
+FILE = "data_clean/32cm_clean.csv"
 FILE_PATH = getcwd() + "/" + FILE
 
-FUNCTION_INDEX = 0
+FUNCTION_INDEX = 1
 FIT_FUNCTIONS = [linear, quadratic, exponential]
 CURRENT_FUNCTION = FIT_FUNCTIONS[FUNCTION_INDEX]
 

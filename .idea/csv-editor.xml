@@ -52,6 +52,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/python/data_clean/50grams_clean.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/python/data_clean/symmetry_left_clean.csv">
           <value>
             <Attribute>

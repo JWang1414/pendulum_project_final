@@ -21,7 +21,8 @@
 - Units are wrong, we'll have to correct this
 - Analyze datasets that alter string length. Use the small angle approximation to find an average period. Check if the period depends on L
 - The period appears to vary depends on L, even for small angles
-- Interestingly, for larger L, the period begins to scale quadratically
+- Interestingly, for larger L, the period begins to scale quadratically with respect to the initial angle
+- TODO: Maybe try to plot this onto the graphs later
 
 [x] Verify or refute the claim that the period is independent of the mass
 - The mass might affect L and D. Ignore these parts
