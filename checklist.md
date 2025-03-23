@@ -3,10 +3,13 @@
 - Find trend in data
 - Periods appears to change for different initial angles
 
-[] Estimate the asymmetry of your pendulum
+[x] Estimate the asymmetry of your pendulum
 - Manual suggests has to do with the previous part
 - So... see if a difference arises in the tau or period length?
 - Relevant: Only used the amplitude on one side to minimize the effect of camera tilt/placement
+- For both the symmetry trials, the periods are roughly the same, and follow the sam patterns
+- Decay constants for both are also very similar, however the "direction" they break down for small angles is opposite
+	- I cannot tell if this is because of symmetry, or simply coincidence
 
 [x] Verify or refute the claim that the decay is exponential, and determine the time constant tau
 - Plot the peak amplitude as a function of time
@@ -14,13 +17,17 @@
 - Decay appears to be exponential
 - Predictions of tau get chaotic when there are less datapoints
 
-[] Verify or refute the claim that the period depends on L as stated in the lab manual
+[x] Verify or refute the claim that the period depends on L as stated in the lab manual
 - Units are wrong, we'll have to correct this
 - Analyze datasets that alter string length. Use the small angle approximation to find an average period. Check if the period depends on L
+- The period appears to vary depends on L, even for small angles
+- Interestingly, for larger L, the period begins to scale quadratically
 
-[] Verify or refute the claim that the period is independent of the mass
+[x] Verify or refute the claim that the period is independent of the mass
 - The mass might affect L and D. Ignore these parts
 - Use the small angle approximation again. This time, analyze the datasets that vary mass
+- Doesn't appear to be affected by the mass. For heavier masses, the period is longer on average, however, the affect is very small
+	- Possibly has to do with stretching in the string
 
 [] Investigate how L + D, m, and the initial angle on tau. If you find a trend, attempt to find a function which fits your data.
 - Don't need a theoretical justification
