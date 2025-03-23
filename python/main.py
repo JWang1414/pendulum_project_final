@@ -4,7 +4,7 @@ from fit_functions import *
 from os import getcwd
 
 # Reformatting this so that PyCharm can autocomplete the file name
-FILE = "data_clean/23cm_clean.csv"
+FILE = "data_clean/150grams_clean.csv"
 FILE_PATH = getcwd() + "/" + FILE
 
 FUNCTION_INDEX = 0
@@ -49,6 +49,7 @@ def fig_settings(figure, xlabel, ylabel):
     :param ylabel: Label for y-axis
     :return:
     """
+    figure.suptitle(FILE)
     figure.supxlabel(xlabel)
     figure.supylabel(ylabel)
     figure.tight_layout()
@@ -96,8 +97,8 @@ def main():
         df = pd.read_csv(f)
 
     # Plot data
-    # plot_periods(df)
-    plot_tau(df)
+    plot_periods(df)
+    # plot_tau(df)
 
 if __name__ == "__main__":
     main()
