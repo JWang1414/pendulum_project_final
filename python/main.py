@@ -1,13 +1,12 @@
 from matplotlib import rc
 from helper_functions import *
 from fit_functions import *
-from os import getcwd
+from files import *
 
-# Reformatting this so that PyCharm can autocomplete the file name
-FILE = "data_clean/32cm_clean.csv"
-FILE_PATH = getcwd() + "/" + FILE
+# Files names found in files.py
+CURRENT_FILE = ALL_FILES["11_cm"]
 
-FUNCTION_INDEX = 1
+FUNCTION_INDEX = 0
 FIT_FUNCTIONS = [linear, quadratic, exponential]
 CURRENT_FUNCTION = FIT_FUNCTIONS[FUNCTION_INDEX]
 
@@ -49,14 +48,14 @@ def fig_settings(figure, xlabel, ylabel):
     :param ylabel: Label for y-axis
     :return:
     """
-    figure.suptitle(FILE)
+    figure.suptitle(CURRENT_FILE)
     figure.supxlabel(xlabel)
     figure.supylabel(ylabel)
     figure.tight_layout()
     figure.show()
 
 
-def plot_periods(df):
+def plot_period_vs_angle(df):
     # Define variables
     periods, periods_err = average_periods(df)
     angles = every_nth_angle(df, 10)
@@ -70,7 +69,7 @@ def plot_periods(df):
               "Initial Angle (degrees)", "Period (seconds)")
 
 
-def plot_tau(df):
+def plot_tau_vs_angle(df):
     # Define variables
     tau, tau_err = tau_list(df, 10)
     angles = every_nth_angle(df, 10)
@@ -93,12 +92,12 @@ def main():
     rc('font', **font)
 
     # Load csv file
-    with open(FILE_PATH, "r") as f:
+    with open(CURRENT_FILE, "r") as f:
         df = pd.read_csv(f)
 
     # Plot data
-    plot_periods(df)
-    # plot_tau(df)
+    # plot_periods(df)
+    plot_tau_vs_angle(df)
 
 if __name__ == "__main__":
     main()
