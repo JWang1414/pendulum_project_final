@@ -4,9 +4,10 @@ from fit_functions import *
 from files import *
 
 # Files names found in files.py
-CURRENT_FILE = ALL_FILES["11_cm"]
+CURRENT_FILE = ALL_FILES["150_grams"]
+TITLE = "150 grams, decay"
 
-FUNCTION_INDEX = 0
+FUNCTION_INDEX = 1
 FIT_FUNCTIONS = [linear, quadratic, exponential]
 CURRENT_FUNCTION = FIT_FUNCTIONS[FUNCTION_INDEX]
 
@@ -48,7 +49,7 @@ def fig_settings(figure, xlabel, ylabel):
     :param ylabel: Label for y-axis
     :return:
     """
-    figure.suptitle(CURRENT_FILE)
+    figure.suptitle(TITLE)
     figure.supxlabel(xlabel)
     figure.supylabel(ylabel)
     figure.tight_layout()
@@ -96,8 +97,8 @@ def main():
         df = pd.read_csv(f)
 
     # Plot data
-    # plot_periods(df)
-    plot_tau_vs_angle(df)
+    plot_period_vs_angle(df)
+    # plot_tau_vs_angle(df)
 
 if __name__ == "__main__":
     main()
