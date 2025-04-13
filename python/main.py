@@ -7,12 +7,17 @@ from files import *
 CURRENT_FILE = ALL_FILES["150_grams"]
 TITLE = "150 grams, decay"
 
+# Define fit functions
 FUNCTION_INDEX = 1
 FIT_FUNCTIONS = [linear, quadratic, exponential]
 CURRENT_FUNCTION = FIT_FUNCTIONS[FUNCTION_INDEX]
 
+# Define figure settings
 FIGURE_SIZE = (8, 6)
 
+# Plot settings
+PERIOD_VS_ANGLE = True
+DECAY_VS_ANGLE = False
 
 def plot_data(x, y, y_err, x_err, xlabel, ylabel):
     """
@@ -60,7 +65,7 @@ def plot_period_vs_angle(df):
     # Define variables
     periods, periods_err = average_periods(df)
     angles = every_nth_angle(df, 10)
-    angles_err = [1.0] * len(angles)
+    angles_err = [2.0] * len(angles)
 
     # Clean data
     outlier_management(angles, periods, periods_err, angles_err)
@@ -75,7 +80,7 @@ def plot_tau_vs_angle(df):
     tau, tau_err = tau_list(df, 10)
     angles = every_nth_angle(df, 10)
     angles = angles[:len(tau)]
-    angles_err = [1.0] * len(angles)
+    angles_err = [2.0] * len(angles)
 
     # Clean data
     control_uncertainties(tau_err, 0.1)
@@ -97,8 +102,10 @@ def main():
         df = pd.read_csv(f)
 
     # Plot data
-    plot_period_vs_angle(df)
-    # plot_tau_vs_angle(df)
+    if PERIOD_VS_ANGLE:
+        plot_period_vs_angle(df)
+    if DECAY_VS_ANGLE:
+        plot_tau_vs_angle(df)
 
 if __name__ == "__main__":
     main()
