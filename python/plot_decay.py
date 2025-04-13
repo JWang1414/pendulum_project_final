@@ -5,15 +5,22 @@ from main import plot_data
 from files import *
 import numpy as np
 
-# Define the file list here. Fit function must be defined in main.py
-FILE_LIST = LENGTH_FILES
+# Fit function must be defined in main.py
 
 # Define fit settings
 # [0] Period vs. mass
 # [1] Period vs. length
 # [2] Decay vs. mass
 # [3] Decay vs. length
-PLOT_CHOICE = 0
+PLOT_CHOICE = 1
+
+FILE_LIST = ""
+if PLOT_CHOICE in [0, 2]:
+    FILE_LIST = MASS_FILES
+elif PLOT_CHOICE in [1, 3]:
+    FILE_LIST = LENGTH_FILES
+else:
+    print("Plot choice error")
 
 # Masses and length
 MASSES = [50, 100, 200, 300, 500]
@@ -55,10 +62,7 @@ def get_period(df):
     :return: Average period and uncertainty.
     """
     # Find the cutoff for small angles
-    for idx, value in df["angles"].iteritems():
-        if value < 20:
-            break
-        df.drop(index=idx, inplace=True)
+    df = df[df["angle"] < 20]
 
     # Calculate the average period
     periods = find_periods(df)
@@ -152,7 +156,7 @@ def main():
         case 2:
             plot_tau_vs_mass(df_list)
         case 3:
-            plot_tau_vs_length()
+            plot_tau_vs_length(df_list)
 
 if __name__ == "__main__":
     main()

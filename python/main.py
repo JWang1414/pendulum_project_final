@@ -4,7 +4,7 @@ from fit_functions import *
 from files import *
 
 # Files names found in files.py
-FILE_NAME = "50g"
+FILE_NAME = "300g"
 CURRENT_FILE = ALL_FILES[FILE_NAME]
 
 # Define fit functions
