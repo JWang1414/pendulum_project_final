@@ -1,14 +1,20 @@
 import pandas as pd
 from scipy.signal import find_peaks
-from os import getcwd
+from matplotlib import pyplot as plt
+from python.files import *
 
 # Define the input and output files
-INPUT = getcwd() + "/data/250grams.csv"
-OUTPUT = getcwd() + "/data_clean/250grams_clean.csv"
+FILE_NAME = "length6"
+INPUT = CURRENT_DIR + "data/" + FILE_NAME + ".csv"
+OUTPUT = DATA_DIR + FILE_NAME + "_clean.csv"
 
 # Important note: The above file structure is defined for my project
 # structure on a Linux Ubuntu system.
 # If you're on another OS, you're on your own.
+
+# Settings
+PLOT = True
+CREATE_FILE = True
 
 def clean_data(df):
     """
@@ -20,7 +26,7 @@ def clean_data(df):
     angles = df["angle"]
 
     # Find peaks
-    peaks = find_peaks(angles, distance=3)[0]
+    peaks = find_peaks(angles, distance=3, height=0)[0]
 
     # Create a new dataframe with just peaks
     peaks_df = df.iloc[peaks]
@@ -55,8 +61,16 @@ def main():
     # Optionally use double_clean to clean for both sides
     clean_df = clean_data(df)
 
+    # Plot the data as a test
+    if PLOT:
+        plt.plot(clean_df["time"], clean_df["angle"])
+        plt.title(FILE_NAME)
+        plt.tight_layout()
+        plt.show()
+
     # Create new .csv files with clean data
-    clean_df.to_csv(OUTPUT, index=False)
+    if CREATE_FILE:
+        clean_df.to_csv(OUTPUT, index=False)
 
 if __name__ == "__main__":
     main()
