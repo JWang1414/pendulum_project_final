@@ -38,6 +38,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/python/data_clean/500g_clean.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/python/data_clean/length1_clean.csv">
           <value>
             <Attribute>
@@ -74,6 +81,20 @@
           </value>
         </entry>
         <entry key="/python/old_data/symmetry_right.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/python/old_data_clean/symmetry_left_clean.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/python/old_data_clean/symmetry_right_clean.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
