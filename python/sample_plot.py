@@ -8,7 +8,7 @@ Should be relatively simple. Exclusively for testing purposes.
 """
 
 # Define global variables
-FILE_ID = "length2"
+FILE_ID = "length6"
 
 def main():
     # Load data
