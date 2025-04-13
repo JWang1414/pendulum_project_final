@@ -3,9 +3,21 @@ from helper_functions import *
 from fit_functions import *
 from main import plot_data
 from files import *
+import numpy as np
 
 # Define the file list here. Fit function must be defined in main.py
 FILE_LIST = LENGTH_FILES
+
+# Define fit settings
+# [0] Period vs. mass
+# [1] Period vs. length
+# [2] Decay vs. mass
+# [3] Decay vs. length
+PLOT_CHOICE = 0
+
+# Masses and length
+MASSES = [50, 100, 200, 300, 500]
+LENGTHS = [52.1, 46.8, 38.0, 30.5, 21.2, 17.2]
 
 
 def get_decay(df):
@@ -55,6 +67,45 @@ def plot_tau_vs_length(df_list):
               "Length (cm)", "Decay Constant (seconds)")
 
 
+def get_period(df):
+    # Find the cutoff for small angles
+    for idx, value in df["angles"].iteritems():
+        if value < 20:
+            break
+        df.drop(index=idx, inplace=True)
+
+    # Calculate the average period
+    periods = find_periods(df)
+    avg_period = np.mean(periods)
+
+    # Calculate uncertainty
+    uncertainty = np.std(periods)/np.sqrt(len(periods))
+
+    return avg_period, uncertainty
+
+
+def get_multiple_periods(df_list):
+    list_of_periods = []
+    list_of_periods_err = []
+    for df in df_list:
+        period, unc = get_period(df)
+        list_of_periods.append(period)
+        list_of_periods_err.append(unc)
+    return list_of_periods, list_of_periods_err
+
+
+def plot_period_vs_mass(df_list):
+    periods, periods_err = get_multiple_periods(df_list)
+    plot_data(MASSES, periods, periods_err, [0.2] * len(periods),
+              "Mass (grams)", "Period length (seconds)")
+
+
+def plot_period_vs_length(df_list):
+    periods, periods_err = get_multiple_periods(df_list)
+    plot_data(LENGTHS, periods, periods_err, [0.5] * len(periods),
+              "Length (cm)", "Period length (seconds)")
+
+
 def main():
     # Define fonts
     font = {'family' : 'DejaVu Sans',
@@ -70,8 +121,15 @@ def main():
             df_list.append(df)
 
     # Plot data
-    # plot_tau_vs_mass(df_list)
-    plot_tau_vs_length(df_list)
+    match PLOT_CHOICE:
+        case 0:
+            plot_period_vs_mass(df_list)
+        case 1:
+            plot_period_vs_length(df_list)
+        case 2:
+            plot_tau_vs_mass(df_list)
+        case 3:
+            plot_tau_vs_length()
 
 if __name__ == "__main__":
     main()
