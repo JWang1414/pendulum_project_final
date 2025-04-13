@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 from python.files import *
 
 # Define the input and output files
-FILE_NAME = "length6"
+FILE_NAME = "300g"
 INPUT = CURRENT_DIR + "data/" + FILE_NAME + ".csv"
 OUTPUT = DATA_DIR + FILE_NAME + "_clean.csv"
 
@@ -63,7 +63,7 @@ def main():
 
     # Plot the data as a test
     if PLOT:
-        plt.plot(clean_df["time"], clean_df["angle"])
+        plt.plot(clean_df["time"], clean_df["angle"], '.')
         plt.title(FILE_NAME)
         plt.tight_layout()
         plt.show()
