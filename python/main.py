@@ -4,8 +4,8 @@ from fit_functions import *
 from files import *
 
 # Files names found in files.py
-CURRENT_FILE = ALL_FILES["150_grams"]
-TITLE = "150 grams, decay"
+CURRENT_FILE = ALL_FILES["length6"]
+TITLE = "length6, period"
 
 # Define fit functions
 FUNCTION_INDEX = 1

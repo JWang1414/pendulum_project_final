@@ -35,7 +35,18 @@
 - Need to justify function choice with goodness of fit or something similar
 - There is nothing to verify or refute here
 - Nothing to work off. Try using basic fit functions
+- It's ok if you find nothing here
 - Ask for help
+
+**Checklist for the resubmission**
+[] Re-make all the decay plots
+- Re-make plots for all masses and lengths
+- Symmetry trials can stay the same; data hasn't changed
+- Plotting decay constant for small angles is probably not worth it?
+	- Doesn't work well for some files least square fitting technique fails
+
+[] Redo lab report
+- Refer to interview checklist. Should be saved on laptop
 
 Consider design features and document decisions.
 - I have written a document for this on Google Drive
