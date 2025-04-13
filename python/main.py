@@ -4,8 +4,8 @@ from fit_functions import *
 from files import *
 
 # Files names found in files.py
-CURRENT_FILE = ALL_FILES["length6"]
-TITLE = "length6, period"
+FILE_NAME = "50g"
+CURRENT_FILE = ALL_FILES[FILE_NAME]
 
 # Define fit functions
 FUNCTION_INDEX = 1
@@ -13,11 +13,17 @@ FIT_FUNCTIONS = [linear, quadratic, exponential]
 CURRENT_FUNCTION = FIT_FUNCTIONS[FUNCTION_INDEX]
 
 # Define figure settings
+TITLE = FILE_NAME
 FIGURE_SIZE = (8, 6)
 
 # Plot settings
 PERIOD_VS_ANGLE = True
 DECAY_VS_ANGLE = False
+
+if PERIOD_VS_ANGLE:
+    TITLE += ", period"
+elif DECAY_VS_ANGLE:
+    TITLE += ", decay"
 
 def plot_data(x, y, y_err, x_err, xlabel, ylabel):
     """
