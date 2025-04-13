@@ -35,7 +35,7 @@ def get_decay(df):
 def get_multiple_taus(df_list):
     """
     From numerous dataframes, calculate tau for each one.
-    :param df_list: List of dataframes. All are assumed to have "time" and "angle" columns.
+    :param df_list: List of dataframes. Assumed to have time and angle columns.
     :return: A list of tau and a list of tau_err.
     """
     list_of_tau = []
@@ -48,6 +48,12 @@ def get_multiple_taus(df_list):
 
 
 def get_period(df):
+    """
+    Calculate the average period length and uncertainty.
+    Limits values in the dataframe to small angles <20 degrees.
+    :param df: Dataframe. Assumed to have time and angle columns.
+    :return: Average period and uncertainty.
+    """
     # Find the cutoff for small angles
     for idx, value in df["angles"].iteritems():
         if value < 20:
@@ -65,6 +71,11 @@ def get_period(df):
 
 
 def get_multiple_periods(df_list):
+    """
+    From numerous dataframes, calculate the average period for each one.
+    :param df_list: List of dataframes. Assumed to have time and angle columns.
+    :return: A list of the average periods and uncertainty.
+    """
     list_of_periods = []
     list_of_periods_err = []
     for df in df_list:
@@ -75,24 +86,44 @@ def get_multiple_periods(df_list):
 
 
 def plot_tau_vs_mass(df_list):
+    """
+    Plot the decay constant as a function of the mass.
+    :param df_list: List of dataframes. Assumed to have time and angle columns.
+    :return: Nothing
+    """
     list_of_tau, list_of_tau_err = get_multiple_taus(df_list)
     plot_data(MASSES, list_of_tau, list_of_tau_err, [0.2] * len(MASSES),
               "Mass (grams)", "Decay Constant (seconds)")
 
 
 def plot_tau_vs_length(df_list):
+    """
+    Plot the decay constant as a function of the length.
+    :param df_list: List of dataframes. Assumed to have time and angle columns.
+    :return: Nothing
+    """
     list_of_tau, list_of_tau_err = get_multiple_taus(df_list)
     plot_data(LENGTHS, list_of_tau, list_of_tau_err, [0.5] * len(LENGTHS),
               "Length (cm)", "Decay Constant (seconds)")
 
 
 def plot_period_vs_mass(df_list):
+    """
+    Plot the average period as a function of the mass.
+    :param df_list: List of dataframes. Assumed to have time and angle columns.
+    :return: Nothing
+    """
     periods, periods_err = get_multiple_periods(df_list)
     plot_data(MASSES, periods, periods_err, [0.2] * len(periods),
               "Mass (grams)", "Period length (seconds)")
 
 
 def plot_period_vs_length(df_list):
+    """
+    Plot the average period as a function of the length.
+    :param df_list: List of dataframes. Assumed to have time and angle columns.
+    :return: Nothing
+    """
     periods, periods_err = get_multiple_periods(df_list)
     plot_data(LENGTHS, periods, periods_err, [0.5] * len(periods),
               "Length (cm)", "Period length (seconds)")
