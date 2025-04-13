@@ -28,7 +28,7 @@ def get_decay(df):
     """
     t = df["time"]
     angle = df["angle"]
-    angle_err = [1.0] * len(angle)
+    angle_err = [3.0] * len(angle)
     return find_tau(t, angle, angle_err)
 
 
@@ -45,26 +45,6 @@ def get_multiple_taus(df_list):
         list_of_tau.append(temp)
         list_of_tau_err.append(temp2)
     return list_of_tau, list_of_tau_err
-
-
-def plot_tau_vs_mass(df_list):
-    # Calculate tau for each mass
-    list_of_tau, list_of_tau_err = get_multiple_taus(df_list)
-    list_mass = [50, 150, 200, 250]
-
-    # Plot everything
-    plot_data(list_mass, list_of_tau, list_of_tau_err, [0.2] * len(list_mass),
-              "Mass (grams)", "Decay Constant (seconds)")
-
-
-def plot_tau_vs_length(df_list):
-    # Calculate tau for each length
-    list_of_tau, list_of_tau_err = get_multiple_taus(df_list)
-    list_length = [11, 16, 23, 32]
-
-    # Plot everything
-    plot_data(list_length, list_of_tau, list_of_tau_err, [0.2] * len(list_length),
-              "Length (cm)", "Decay Constant (seconds)")
 
 
 def get_period(df):
@@ -92,6 +72,18 @@ def get_multiple_periods(df_list):
         list_of_periods.append(period)
         list_of_periods_err.append(unc)
     return list_of_periods, list_of_periods_err
+
+
+def plot_tau_vs_mass(df_list):
+    list_of_tau, list_of_tau_err = get_multiple_taus(df_list)
+    plot_data(MASSES, list_of_tau, list_of_tau_err, [0.2] * len(MASSES),
+              "Mass (grams)", "Decay Constant (seconds)")
+
+
+def plot_tau_vs_length(df_list):
+    list_of_tau, list_of_tau_err = get_multiple_taus(df_list)
+    plot_data(LENGTHS, list_of_tau, list_of_tau_err, [0.5] * len(LENGTHS),
+              "Length (cm)", "Decay Constant (seconds)")
 
 
 def plot_period_vs_mass(df_list):
