@@ -1,11 +1,9 @@
-import numpy as np
 from matplotlib import pyplot as plt, rc
 import pandas as pd
 from numpy.core.function_base import linspace
 
 from python.files import ALL_FILES
-from python.fit_functions import find_tau, fit_curve, decay_function
-from python.main import fig_settings
+from python.fit_functions import fit_curve, decay_function
 
 """
 Plot a given dataset
