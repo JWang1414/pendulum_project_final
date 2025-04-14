@@ -12,7 +12,7 @@ import numpy as np
 # [1] Period vs. length
 # [2] Decay vs. mass
 # [3] Decay vs. length
-PLOT_CHOICE = 3
+PLOT_CHOICE = 0
 
 FILE_LIST = ""
 if PLOT_CHOICE in [0, 2]:

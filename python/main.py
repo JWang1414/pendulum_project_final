@@ -4,7 +4,7 @@ from fit_functions import *
 from files import *
 
 # Files names found in files.py
-FILE_NAME = "length6"
+FILE_NAME = "right"
 CURRENT_FILE = ALL_FILES[FILE_NAME]
 
 # Define fit functions
@@ -18,7 +18,7 @@ FIGURE_SIZE = (8, 6)
 
 # Plot settings
 PERIOD_VS_ANGLE = False
-DECAY_VS_ANGLE = True
+DECAY_VS_ANGLE = False
 
 if PERIOD_VS_ANGLE:
     TITLE += ", period"
