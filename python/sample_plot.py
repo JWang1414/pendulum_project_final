@@ -1,3 +1,4 @@
+import numpy as np
 from matplotlib import pyplot as plt
 import pandas as pd
 from numpy.core.function_base import linspace
@@ -11,7 +12,7 @@ Should be relatively simple. Exclusively for testing purposes.
 """
 
 # Define global variables
-FILE_ID = "50g"
+FILE_ID = "200g"
 
 def main():
     # Load data
@@ -24,7 +25,7 @@ def main():
 
     # Plot exponential decay
     popt, pcov = fit_curve(decay_function, time, angle, [3.0] * len(angle),
-                           [angle[0], 10, 0], False)
+                           [angle[0], 10, 0], True)
 
     x_bf = linspace(min(time), max(time), 100)
     y_bf = decay_function(x_bf, *popt)

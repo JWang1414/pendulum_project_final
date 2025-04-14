@@ -4,7 +4,7 @@ from fit_functions import *
 from files import *
 
 # Files names found in files.py
-FILE_NAME = "300g"
+FILE_NAME = "right"
 CURRENT_FILE = ALL_FILES[FILE_NAME]
 
 # Define fit functions
@@ -17,8 +17,8 @@ TITLE = FILE_NAME
 FIGURE_SIZE = (8, 6)
 
 # Plot settings
-PERIOD_VS_ANGLE = True
-DECAY_VS_ANGLE = False
+PERIOD_VS_ANGLE = False
+DECAY_VS_ANGLE = True
 
 if PERIOD_VS_ANGLE:
     TITLE += ", period"
@@ -86,7 +86,7 @@ def plot_tau_vs_angle(df):
     tau, tau_err = tau_list(df, 10)
     angles = every_nth_angle(df, 10)
     angles = angles[:len(tau)]
-    angles_err = [3.0] * len(angles)
+    angles_err = [2.0] * len(angles)
 
     # Clean data
     control_uncertainties(tau_err, 0.1)
