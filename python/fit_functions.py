@@ -153,7 +153,7 @@ def find_tau(t, theta, theta_err):
     """
     popt, pcov = fit_curve(decay_function, t, theta, theta_err,
                            [theta[0], 10, 0], False)
-    return popt[2], pcov[2]
+    return popt[1], pcov[1]
 
 
 def tau_list(df, n):
