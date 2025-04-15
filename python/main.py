@@ -4,12 +4,12 @@ from fit_functions import *
 from files import *
 
 # Files names found in files.py
-FILE_NAME = "right"
+FILE_NAME = "left"
 CURRENT_FILE = ALL_FILES[FILE_NAME]
 
 # Define fit functions
-FUNCTION_INDEX = 0
-FIT_FUNCTIONS = [linear, quadratic, exponential]
+FUNCTION_INDEX = 1
+FIT_FUNCTIONS = [linear, quadratic, exponential, square_root]
 CURRENT_FUNCTION = FIT_FUNCTIONS[FUNCTION_INDEX]
 
 # Define figure settings
@@ -17,11 +17,12 @@ TITLE = FILE_NAME
 FIGURE_SIZE = (8, 6)
 
 # Plot settings
-PERIOD_VS_ANGLE = False
+PERIOD_VS_ANGLE = True
 DECAY_VS_ANGLE = False
 
 if PERIOD_VS_ANGLE:
     TITLE += ", period"
+
 elif DECAY_VS_ANGLE:
     TITLE += ", decay"
 
@@ -77,6 +78,7 @@ def plot_period_vs_angle(df):
     outlier_management(angles, periods, periods_err, angles_err)
 
     # Plot everything
+    print(periods_err)
     plot_data(angles, periods, periods_err, angles_err,
               "Initial Angle (degrees)", "Period (seconds)")
 

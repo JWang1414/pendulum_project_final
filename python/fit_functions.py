@@ -18,6 +18,12 @@ def linear(x, m, b):
     return m * x + b
 
 
+def square_root(x, a, b, c):
+    a = np.array(a)
+
+    return a * np.sqrt(x - b) + c
+
+
 def quadratic(x, a, b, c):
     """
     Quadratic function.

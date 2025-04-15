@@ -16,11 +16,11 @@ Chi-squared probability: 0.9999999999998453
 
 ### Symmetry left, decay
 
-Optimized values: [7.52727708e-03 1.25714981e+02 6.39516684e+01]
-Uncertainties: [2.74698665e-03 2.15995154e+01 8.92009395e+00]
-Chi-squared: 1.7539280007077844
-Degrees of Freedom: 11
-Chi-squared probability: 0.9991909883150722
+Optimized values: [ -0.88412553 151.37468764]
+Uncertainties: [0.04040753 3.08787993]
+Chi-squared: 9.26259460102627
+Degrees of Freedom: 12
+Chi-squared probability: 0.6803527725590357
 
 ### Symmetry right, decay
 
@@ -40,11 +40,11 @@ Chi-squared probability: 0.03030629703602039
 
 ### Period vs Length
 
-Optimized values: [-1.36317774e-04  1.00808194e+02  1.76915513e+00]
-Uncertainties: [1.21903594e-05 6.49927706e+00 6.36573620e-02]
-Chi-squared: 13.596266722454159
+Optimized values: [ 0.22873019 -5.95749565 -0.28548696]
+Uncertainties: [0.01003842 2.84091566 0.11504809]
+Chi-squared: 7.633255900546395
 Degrees of Freedom: 3
-Chi-squared probability: 0.0035095391073818316
+Chi-squared probability: 0.05423160354386236
 
 ### Decay vs Mass
 
@@ -56,8 +56,8 @@ Chi-squared probability: 0.19169671856451997
 
 ### Decay vs Length
 
-Optimized values: [-8.31225255e-04  3.24009273e+02  1.56766225e+02]
-Uncertainties: [2.30553657e-04 1.79526000e+01 9.87213648e+00]
-Chi-squared: 3.3036814932660366
-Degrees of Freedom: 2
-Chi-squared probability: 0.19169671856451997
+Optimized values: [-6.15325308e-02  3.54799156e+01  9.78801273e+01]
+Uncertainties: [0.01302356 0.98372009 2.78780242]
+Chi-squared: 18.154422664589873
+Degrees of Freedom: 3
+Chi-squared probability: 0.00040874209844288245	

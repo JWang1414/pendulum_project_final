@@ -11,7 +11,7 @@ Should be relatively simple. Exclusively for testing purposes.
 """
 
 # Define global variables
-FILE_ID = "length6"
+FILE_ID = "right"
 
 def main():
     # Define fonts
